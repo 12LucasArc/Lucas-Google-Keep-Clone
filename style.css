@@ -173,7 +173,7 @@ input:focus {
 }
 
 .active-form {
-
+  display: none;
 }
 
 .active-form form {
@@ -259,7 +259,7 @@ justify-content: center;
   visibility: hidden;
 }
 
-.modal .modal-content {
+/* .modal .modal-content {
   width: 589px;
   position: relative;
   top: 30%;
@@ -269,4 +269,4 @@ justify-content: center;
 
 .open-modal {
   visibility: visible;
-}
+} */
