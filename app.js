@@ -10,6 +10,7 @@ class Note {
     constructor() {
       this.notes = [new Note("abc1", "test title", "test text")];
       this.selectedNoteId = "";
+      this.miniSidebar = true;
   
       this.$activeForm = document.querySelector(".active-form");
       this.$inactiveForm = document.querySelector(".inactive-form");
@@ -21,6 +22,7 @@ class Note {
       this.$modalForm = document.querySelector("#modal-form");
       this.$modalTitle = document.querySelector("#modal-title");
       this.$modalText = document.querySelector("#modal-text");
+      this.$sidebar = document.querySelector(".sidebar");
   
       this.addEventListeners();
       this.displayNotes();
@@ -41,6 +43,13 @@ class Note {
         this.addNote({ title, text });
         this.closeActiveForm();
       });
+
+      this.$sidebar.addEventListener("mouseover", (event) => {
+        this.handleToggleSidebar();
+      })
+      this.$sidebar.addEventListener("mouseout", (event) => {
+        this.handleToggleSidebar();
+      })
     }
   
     handleFormClick(event) {
@@ -142,7 +151,7 @@ class Note {
         if(this.miniSidebar) {
           this.$sidebar.style.width = "250px";
           this.$sidebar.classList.add("sidebar-hover");
-          this.miniSidebar = false
+          this.miniSidebar = false;
         }
         else {
           this.$sidebar.style.width = "80px";
